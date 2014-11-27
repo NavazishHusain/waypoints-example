@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<title>Scroll Analytics with jQuery Waypoints</title>
+	<meta name="description" content="An example of how to use the jQuery Waypoints plugin to track ad views more accurately and respond to engaged users when they reach the end of content">
+	<meta name="viewport" content="width=480">
+
+	<link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono|Lato:400,700|PT+Serif:700' rel='stylesheet' type='text/css'>
+	<style type="text/css">
+	ul {
+		list-style-type: none;
+	}
+	</style>
+</head>
+<body>
+	<ul>
+		<li style="width: auto; height: 100px; background-color: gray; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="header-1">
+			Approved
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-1">
+			Aareal Bank
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-2">
+			Alpargatas
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-3">
+			B&G Manufacturing
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-4">
+			Bernalillo County
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-5">
+			Blue Marble Media
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-6">
+			Brookshire Grocery Company
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-7">
+			Castle Importing, Inc.
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-8">
+			Chemion Logistik GmbH
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-9">
+			Citrix
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-10">
+			Dr Pepper Snapple Group
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-11">
+			Dutch-Bangla Bank Limited
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid white; margin-bottom: 2px; color: black;" class="display_div">
+		</li>
+		<li style="width: 1380px; height: 100px; background-color: gray; border-bottom: 1px solid red; margin-bottom: 2px; color: black; position: fixed; bottom: 0px;" class="header-2">
+			Orders
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-12">
+			Ferrero
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-13">
+			Florida Crystals
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-14">
+			FMC Corporation
+		</li>
+		<li style="width: auto; height: 100px; background-color: white; border-bottom: 1px solid red; margin-bottom: 2px; color: black;" class="div-15">
+			Frankfurt Airport
+		</li>
+	</ul>
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8/jquery.min.js"></script>
+<script src="../../waypoints.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+$('.display_div').waypoint(function(direction) {
+  //alert('Top of thing hit top of viewport.');
+  if (direction == "down") {
+  $(".display_div").css({display: "none"});
+  $(".header-2").css({position: "inherit"});
+  }
+}, { offset: 'bottom-in-view' });
+});
+$(".div-12").waypoint(function(direction) {
+	if (direction == "up") {
+  $(".display_div").css({display: "inherit"});
+  $(".header-2").css({position: "fixed"});
+	}
+}, { offset: '100%' });
+</script>
+
+</body>
+</html>
